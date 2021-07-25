@@ -55,7 +55,7 @@ function run() {
                 .split('\n')
                 .filter(a => a !== '');
             const client = github.getOctokit(githubToken);
-            yield resp = client.issues.create({
+            var resp = yield client.issues.create({
                 owner: owner,
                 repo: repo,
                 title: title,
