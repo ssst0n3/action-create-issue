@@ -18,9 +18,8 @@ async function run(): Promise<void> {
       .split('\n')
       .filter(a => a !== '');
 
-    core.setOutput('TEST', 'Test')
     const client = github.getOctokit(githubToken);
-    await resp = client.issues.create({
+    await client.issues.create({
       owner: owner,
       repo: repo,
       title: title,
@@ -29,7 +28,6 @@ async function run(): Promise<void> {
       milestone: milestone ? milestone : undefined,
       assignees: assignees
     });
-    core.setOutput('number', resp);
   } catch (e) {
     core.error(e);
     core.setFailed(e.message);
