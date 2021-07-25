@@ -64,7 +64,7 @@ function run() {
                 milestone: milestone ? milestone : undefined,
                 assignees: assignees
             });
-	    core.setOutput('number', resp.number)
+	    core.setOutput('resp', resp)
         }
         catch (e) {
             core.error(e);
