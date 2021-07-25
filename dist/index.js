@@ -55,7 +55,7 @@ function run() {
                 .split('\n')
                 .filter(a => a !== '');
             const client = github.getOctokit(githubToken);
-            yield client.issues.create({
+            yield resp = client.issues.create({
                 owner: owner,
                 repo: repo,
                 title: title,
@@ -64,6 +64,7 @@ function run() {
                 milestone: milestone ? milestone : undefined,
                 assignees: assignees
             });
+	    core.setOutput('number', resp.number)
         }
         catch (e) {
             core.error(e);
