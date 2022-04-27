@@ -65,6 +65,7 @@ function run() {
                 assignees: assignees
             });
 	    core.setOutput('number', resp.data.number)
+	    core.setOutput('node_id', resp.data.node_id)
         }
         catch (e) {
             core.error(e);
